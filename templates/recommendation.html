@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Book Recommendation System</title>
+  <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
+</head>
+
+<body>
+  <div id="Headings">
+    <header>
+      <h1>Book Recommendation System</h1>
+  </header>
+
+  <nav>
+    <ul>
+        <li><a href="/">HOME</a></li>
+        <li><a href="/recommender">BOOKS</a></li>
+        <li><a href="/contact_info">ContactUs</a></li>
+        <!-- Add more links to other sections if needed -->
+    </ul>
+  </nav>
+  </div>
+
+
+  <main>
+    <div class="top_books">
+
+      <section class="top_books">
+        <h2>Welcome to the Book Recommender System</h2>
+        <p>
+          Here, you can discover amazing books that match your interests.
+          Our advanced recommendation algorithms will suggest books you might love.
+          Explore a wide range of genres and find your next favorite read!
+        </p>
+      </section>
+  
+      <!-- Add a form for user input -->
+      <section class="search_form">
+
+        <!-- <h2>Recommend Books</h2> -->
+
+        <form action="/search" method="POST">
+
+          <label for="book_name">Recommend Book : </label>
+          <input type="text" id="book_name" name="book_name" placeholder="Search Book Here..." required>
+          <button type="submit">Submit</button>
+
+        </form>
+
+      </section>
+
+      <br>
+
+      <div style="display: flex; flex-wrap: wrap ;">
+        {% if data %}
+            {% for i in data %}
+            {% if loop.index % 5 == 1 %}
+            <div style="display: flex; flex-basis: 100%;">
+            {% endif %}
+            <div style="flex: 20%; padding: 15px; border: dashed 1px #00897b ">
+                <img src="{{ i[2] }}" alt="Book_image">
+                <h4 style="font-weight: bold;">{{ i[0] }}</h4>
+                <h5>{{ i[1] }}</h5>
+            </div>
+            {% if loop.index % 5 == 0 or loop.last %}
+            </div>
+            {% endif %}
+            {% endfor %}
+        {% else %}
+            <!-- Display error message or default message when no recommendations are available -->
+            <p>{{ error_message }}</p>
+        {% endif %}
+    </div>
+    
+    
+  </div>
+        
+ </main>
+
+    <footer>
+        <p>&copy; 2023 My Book Recommendation System</p>
+    </footer>
+</body>
+
+</html>

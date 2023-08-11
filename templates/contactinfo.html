@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Me and Contact Us - Book Recommendation System</title>
+  <!-- Link Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <!-- Add your custom CSS -->
+  <link rel="stylesheet" href="{{url_for('static', filename='infopage.css')}}">
+</head>
+
+<body>
+  <header>
+    <div id="Headings">
+        <header>
+          <h1>Book Recommendation System</h1>
+      </header>
+    
+      <nav>
+        <ul>
+            <li><a href="/">HOME</a></li>
+            <li><a href="/recommender">BOOKS</a></li>
+            <li><a href="/contact_info">ContactUs</a></li>
+            <!-- Add more links to other sections if needed -->
+        </ul>
+      </nav>
+      </div>
+  </header>
+
+  <main>
+    <div class="container mt-5">
+      <div class="row">
+        <!-- About Me Section -->
+        <div class="col-md-6">
+          <div class="Aboutme p-4 bg-warning">
+            <h2>About Me</h2>
+            <p>
+              Welcome to the Book Recommendation System! I am Mahipal Singh Rathore, the developer of this platform.
+              I am passionate about books and technology, and this project is a culmination of those interests.
+              My goal is to help you discover fantastic books that match your interests and expand your reading horizons.
+              I hope you find this system helpful and enjoyable!
+            </p>
+          </div>
+        </div>
+
+        <!-- Contact Us Section -->
+        <div class="col-md-6">
+          <div class="info p-4 bg-warning">
+            <h2>Contact Us</h2>
+            <form action="/contact">
+              <div class="form-group">
+                <label for="user_name">Name</label>
+                <input type="text" class="form-control" name="user_name" id="user_name" placeholder="Enter Your Name Here...">
+              </div>
+              <div class="form-group">
+                <label for="email">Email Id</label>
+                <input type="email" class="form-control" name="email" id="email" placeholder="Enter your Email Address...">
+              </div>
+              <div class="form-group">
+                <label for="msg">Message</label>
+                <textarea class="form-control" name="msg" id="msg" placeholder="Text Message Here..." rows="4"></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Add footer section if needed -->
+
+  <!-- Link Bootstrap JS and jQuery -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

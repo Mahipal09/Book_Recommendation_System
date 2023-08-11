@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Book Recommendation System</title>
+  <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
+</head>
+
+<body>
+  <div id="Headings">
+    <header>
+      <h1>Book Recommendation System</h1>
+  </header>
+
+  <nav>
+    <ul>
+        <li><a href="/">HOME</a></li>
+        <li><a href="/recommender">BOOKS</a></li>
+        <li><a href="/contact_info">ContactUs</a></li>
+        <!-- Add more links to other sections if needed -->
+    </ul>
+  </nav>
+  </div>
+
+
+  <main>
+    <div class="top_books">
+
+      <h2>TOP 50 Popular Books</h2>
+
+      <br>
+
+      <div style="display: flex; flex-wrap: wrap ;">
+        {% for i in range(book_name|length) %}
+            {% if loop.index % 5 == 1 %}
+            <div style="display: flex; flex-basis: 100%;">
+            {% endif %}
+            <div style="flex: 20%; padding: 15px;border: dashed 1px #00897b ">
+                <img style="padding-left: 60px;" src="{{ image[i] }}" alt="Book_image">
+                <p style="font-weight: bold;">{{ book_name[i] }}</p>
+                <h5>{{ book_author[i] }}</h5>
+                <h5>Votes - {{ votes[i] }}</h5>
+                <h5>Ratings - {{ ratings[i]|round(2) }}</h5>
+            </div>
+            {% if loop.index % 5 == 0 or loop.last %}
+            <!-- <div style="flex-basis: 100%; border-style: dashed solid black;"></div> -->
+
+            </div>
+            {% endif %}
+        {% endfor %}
+    </div>
+    
+    
+    
+    
+
+      
+
+      
+  
+        
+      
+        
+
+      
+
+
+
+    </div>
+      
+    
+          
+          
+      
+  
+    
+
+    </main>
+
+    <footer>
+        <p>&copy; 2023 My Book Recommendation System</p>
+    </footer>
+</body>
+
+</html>
